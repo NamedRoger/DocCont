@@ -1,0 +1,60 @@
+
+/*
+* -- Models --
+* Doctor
+    - id : string
+    - nombre: String
+    - apellidoP : String
+    - apellidoM : String
+    - Especialidad : Especialidad (classe)
+    - isDelete : boolean
+* Cita
+    - id : strign
+    - Paciente: Paciente
+    - Doctor: Doctor
+    - Fecha : DateTime
+    - EstatusCita : EstatusCita
+    - isDelete : boolean
+* Paciente
+    - id : string
+    - nombre : String
+    - apellidoP : String
+    - apellidoM : String
+    - isDelete : boolean
+* Usuario
+    - id : String
+    - userName : String (debe ser unico)
+    - userNamNormalize : Strign (todo en mayuscula || todo en minuscula)
+    - password : String
+* Especialidad
+    - id : String
+    - nombre : String
+    - nombreNormalize : String (todo en mayuscula || todo en minuscula)
+    - isDelete : boolean
+
+* -- Modulos --
+* Doctores - Especialidad
+    - agregar un doctor
+    - consultar doctores
+    - ver un doctor
+    - actualizar un doctor
+    - eliminar un doctor
+* Pacientes
+    - agregar un Paciente
+    - consultar Paciente
+    - ver un Paciente
+    - actualizar un Paciente
+    - eliminar un Paciente
+* Cita - Estaus Cita
+    - agregar un Cita
+    - consultar Cita
+    - ver un Cita
+    - actualizar un Cita
+    - eliminar un Cita
+* Usuarios
+    - Login
+    - crear un usuario
+    - actualizar un usuario
+    - borrar un usuario
+    - cambiar password
+
