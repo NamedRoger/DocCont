@@ -15,10 +15,6 @@ public class Cita {
         this.estatusCita = new EstatusCita();
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
    }
