@@ -1,4 +1,4 @@
-package src.com.NamedRoger.Models;
+package src.com.NamedRoger.Dominio.Models;
 
 public class Paciente {
     private Integer id

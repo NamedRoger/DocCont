@@ -1,4 +1,4 @@
-package src.com.NamedRoger.Models;
+package src.com.NamedRoger.Dominio.Models;
 
 import java.util.Date;
 
