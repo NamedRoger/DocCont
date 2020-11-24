@@ -6,6 +6,7 @@
     - nombre: String
     - apellidoP : String
     - apellidoM : String
+    - cedula : Strign
     - Especialidad : Especialidad (classe)
     - isDelete : boolean
 * Cita
