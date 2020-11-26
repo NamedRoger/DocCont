@@ -6,7 +6,6 @@ public class Paciente implements Modelo{
     private String nombre;
     private String apellidoP;
     private String apellidoM;
-    private boolean isDelete;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -33,10 +32,4 @@ public class Paciente implements Modelo{
         return apellidoP;
     }
 
-    public void setDelete(boolean delete) {
-        isDelete = delete;
-    }
-    public boolean getDelete() {
-        return isDelete;
-    }
 }
