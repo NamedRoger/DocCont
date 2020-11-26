@@ -49,4 +49,8 @@ public class DataBase {
 
         return dataBase;
     }
+
+    public void Inicializar(){
+
+    }
 }

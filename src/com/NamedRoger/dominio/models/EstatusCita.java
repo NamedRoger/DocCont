@@ -1,7 +1,7 @@
 package src.com.NamedRoger.dominio.models;
 
 public class EstatusCita implements Modelo{
-    private Integer id;
+    private Integer id = 1;
     private String nombre;
 
     public Integer getId() {
