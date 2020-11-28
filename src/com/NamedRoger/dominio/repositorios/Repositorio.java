@@ -6,30 +6,30 @@ import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 import java.io.IOException;
 import java.util.List;
 
-public class Repositorio<TEntidad extends Modelo> implements IRepository<TEntidad> {
-    Entidad<TEntidad> entidad;
+public class Repositorio<TModel extends Modelo> implements IRepository<TModel> {
+    Entidad<TModel> entidad;
 
-    public Repositorio(Entidad<TEntidad> entidad){
+    public Repositorio(Entidad<TModel> entidad){
         this.entidad = entidad;
     }
 
     @Override
-    public List<TEntidad> obetenerTodos() {
+    public List<TModel> obetenerTodos() {
         return this.entidad.obtener();
     }
 
     @Override
-    public void insertar(TEntidad enitdad) throws IOException {
+    public void insertar(TModel enitdad) throws IOException {
         this.entidad.insertar(enitdad);
     }
 
     @Override
-    public void actualizar(TEntidad entidad, TEntidad entidadActualizada) throws IOException {
+    public void actualizar(TModel entidad, TModel entidadActualizada) throws IOException {
         this.entidad.editar(entidad, entidadActualizada);
     }
 
     @Override
-    public void borrar(TEntidad entidad) {
+    public void borrar(TModel entidad) {
         this.entidad.borrar(entidad);
     }
 }
