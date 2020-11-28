@@ -6,8 +6,7 @@ public class Constante {
 
     public static String getPath() {
         String separator = FileSystems.getDefault().getSeparator();
-        String fileName = String.format("src%scom%sNamedRoger%sFiles%s",separator,separator,separator,separator);
-
+        String fileName = String.format(System.getProperty("user.home"));
         return fileName;
     }
 }
