@@ -9,4 +9,9 @@ public class BaseModelo implements Modelo {
     public Integer getId() {
         return (Integer) this.id;
     }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
