@@ -2,12 +2,14 @@ package src.com.NamedRoger.dominio.models;
 
 import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
-public class Especialidad implements Modelo {
-    private Integer id;
+public class Especialidad extends BaseModelo {
     private String nombre;
 
-    @Override
-    public Integer getId() {
-        return this.id;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

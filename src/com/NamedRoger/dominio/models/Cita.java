@@ -4,8 +4,7 @@ import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
 import java.util.Date;
 
-public class Cita implements Modelo {
-    private Integer id;
+public class Cita extends BaseModelo {
     private Paciente paciente;
     private Doctor doctor;
     private Date fecha;
@@ -16,10 +15,6 @@ public class Cita implements Modelo {
         this.doctor = new Doctor();
         this.estatusCita = new EstatusCita();
     }
-
-    public Integer getId() {
-        return id;
-   }
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
