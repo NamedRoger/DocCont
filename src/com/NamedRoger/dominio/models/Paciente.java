@@ -1,6 +1,8 @@
 package src.com.NamedRoger.dominio.models;
 
-public class Paciente implements Modelo{
+import src.com.NamedRoger.infraestructura.interfaces.Modelo;
+
+public class Paciente implements Modelo {
 
     private Integer id;
     private String nombre;

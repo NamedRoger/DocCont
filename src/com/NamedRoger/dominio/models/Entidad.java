@@ -2,15 +2,16 @@ package src.com.NamedRoger.dominio.models;
 
 import com.google.gson.Gson;
 import src.com.NamedRoger.infraestructura.Constante;
+import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Entidad<TModelo extends Modelo> {
     private String tabla;
@@ -20,8 +21,9 @@ public class Entidad<TModelo extends Modelo> {
         this.tabla = tabla;
         this.crearTabla();
         this.registros = new ArrayList<>();
-        this.cargarDatos();
+        cargarDatos();
     }
+
 
     public List<TModelo> obtener(){
         return this.registros;
@@ -46,7 +48,7 @@ public class Entidad<TModelo extends Modelo> {
     }
 
     private void crearTabla() throws IOException {
-        Path path = Paths.get(Constante.getPath()+tabla+".json");
+        Path path = Paths.get(Constante.getPath()+"/"+tabla+".json");
         String dataInit = "";
         if(!Files.exists(path)){
             Files.write(path,dataInit.getBytes());
@@ -54,19 +56,17 @@ public class Entidad<TModelo extends Modelo> {
     }
 
     private void guardar() throws IOException {
-        Path path = Paths.get(Constante.getPath()+tabla+".json");
+        Path path = Paths.get(Constante.getPath()+"/"+tabla+".json");
         Files.write(path, (new Gson().toJson(this.registros)).getBytes(), StandardOpenOption.CREATE);
     }
 
     private void cargarDatos() throws IOException {
-        Path path = Paths.get(Constante.getPath()+tabla+".json");
+        Path path = Paths.get(Constante.getPath()+"/"+tabla+".json");
         String registrosJson = new String(Files.readAllBytes(path));
 
         if(!registrosJson.isEmpty()){
             Gson gson = new Gson();
-
-           var p = gson.fromJson(registrosJson,EstatusCita[].class);
-           var hola = "";
+           this.registros = gson.fromJson(registrosJson, (Type) Object.class);
         }
 
     }

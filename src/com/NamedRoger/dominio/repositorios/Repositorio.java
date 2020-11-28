@@ -1,7 +1,7 @@
 package src.com.NamedRoger.dominio.repositorios;
 
 import src.com.NamedRoger.dominio.models.Entidad;
-import src.com.NamedRoger.dominio.models.Modelo;
+import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
 import java.io.IOException;
 import java.util.List;
