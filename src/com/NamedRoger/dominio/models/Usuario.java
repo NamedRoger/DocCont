@@ -2,15 +2,11 @@ package src.com.NamedRoger.dominio.models;
 
 import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
-public class Usuario implements Modelo {
-    private Integer id;
+public class Usuario extends BaseModelo {
     private String userName;
     private String userNameNormalize;
     private String password;
 
-    public Integer getId() {
-        return id;
-    }
 
     public void setUserName(String userName) {
         this.userName = userName;
