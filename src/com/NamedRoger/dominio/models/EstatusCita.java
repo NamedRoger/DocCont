@@ -1,12 +1,9 @@
 package src.com.NamedRoger.dominio.models;
 
-public class EstatusCita implements Modelo{
-    private Integer id = 1;
-    private String nombre;
+import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
-    public Integer getId() {
-        return id;
-    }
+public class EstatusCita extends BaseModelo {
+    private String nombre;
 
     public String getNombre() {
         return nombre;
@@ -15,4 +12,6 @@ public class EstatusCita implements Modelo{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+
 }

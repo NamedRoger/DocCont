@@ -1,8 +1,10 @@
 package src.com.NamedRoger.dominio.models;
 
+import src.com.NamedRoger.infraestructura.interfaces.Modelo;
+
 import java.util.Date;
 
-public class Cita implements Modelo{
+public class Cita implements Modelo {
     private Integer id;
     private Paciente paciente;
     private Doctor doctor;
