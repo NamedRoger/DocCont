@@ -1,10 +1,7 @@
 package src.com.NamedRoger.dominio.models;
 
-import src.com.NamedRoger.infraestructura.interfaces.Modelo;
+public class Paciente extends BaseModelo {
 
-public class Paciente implements Modelo {
-
-    private Integer id;
     private String nombre;
     private String apellidoP;
     private String apellidoM;
@@ -14,10 +11,6 @@ public class Paciente implements Modelo {
     }
     public String getNombre() {
         return nombre;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setApellidoM(String apellidoM) {
