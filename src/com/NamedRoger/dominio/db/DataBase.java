@@ -6,16 +6,16 @@ import java.io.IOException;
 
 public class DataBase {
     private static DataBase dataBase;
+    private RegistroDataBase registroDataBase;
 
     private Entidad<Cita> cita = new Entidad<>("citas");
     private Entidad<Doctor> doctor = new Entidad<>("doctores");
     private Entidad<Especialidad> especialidad = new Entidad<>("especialidades");
     private Entidad<Paciente> paciente = new Entidad<>("pacientes");
-    private Entidad<EstatusCita> estatusCita = new Entidad<>("estaus_citas");
+    private Entidad<EstatusCita> estatusCita = new Entidad<>("estatus_citas");
     private Entidad<Usuario> usuario = new Entidad<>("usuarios");
 
     private DataBase() throws IOException {
-
     }
 
     public Entidad<Cita> getCita() {
@@ -50,6 +50,4 @@ public class DataBase {
         return dataBase;
     }
 
-    public void Inicializar(){
-    }
 }

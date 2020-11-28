@@ -1,6 +1,7 @@
 package src.com.NamedRoger.dominio.models;
 
 import com.google.gson.Gson;
+import src.com.NamedRoger.dominio.db.RegistroDataBase;
 import src.com.NamedRoger.infraestructura.Constante;
 import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
@@ -30,9 +31,12 @@ public class Entidad<TModelo extends Modelo> {
     }
 
     public void insertar(TModelo model) throws IOException {
+        RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
+        Integer ultimoId = registroDataBase.obtenerRegistro(this.tabla) +1;
+        model.setId(ultimoId);
         this.registros.add(model);
         this.guardar();
-
+        registroDataBase.editarRegistro(this.tabla,ultimoId);
     }
 
     public void editar(TModelo model,TModelo entidadActualizada) throws IOException {
