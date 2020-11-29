@@ -17,13 +17,12 @@ import java.util.List;
 
 public class Entidad<TModelo extends BaseModelo> {
     private String tabla;
-    List<TModelo> registros;
+    private List<TModelo> registros;
 
     public Entidad(String tabla) throws IOException {
         this.tabla = tabla;
         this.crearTabla();
         this.registros = new ArrayList<TModelo>();
-        cargarDatos();
     }
 
     public List<TModelo> obtenerTodos(){
@@ -52,16 +51,11 @@ public class Entidad<TModelo extends BaseModelo> {
         Files.write(path, (new Gson().toJson(this.registros)).getBytes(), StandardOpenOption.CREATE);
     }
 
-    private void cargarDatos() throws IOException {
-        Path path = Paths.get(Constante.getPath()+"/"+tabla+".json");
-        String registrosJson = new String(Files.readAllBytes(path));
-
-        if(!registrosJson.isEmpty()){
-            Gson gson = new Gson();
-            Type type = new TypeToken<ArrayList<TModelo>>(){}.getType();
-            this.registros = gson.fromJson(registrosJson,type);
-        }
-
+    public void setRegistros(List<TModelo> registros) {
+        this.registros = registros;
     }
 
+    public void setTabla(String tabla) {
+        this.tabla = tabla;
+    }
 }

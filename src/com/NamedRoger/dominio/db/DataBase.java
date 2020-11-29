@@ -26,6 +26,7 @@ public class DataBase {
     private Entidad<Usuario> usuario = new Entidad<>("usuarios");
 
     private DataBase() throws IOException {
+        cargarDatos();
     }
 
     public Entidad<Cita> getCita() {
@@ -61,15 +62,10 @@ public class DataBase {
     }
 
     public void cargarDatos() throws IOException {
-        Gson gson = new Gson();
-        Path path = Paths.get(Constante.getPath()+"/"+"estatus_citas"+".json");
-        String registrosJson = new String(Files.readAllBytes(path));
-        Type collectionType = new TypeToken< ArrayList<EstatusCita>>(){}.getType();
-        ArrayList<EstatusCita> estatusCitas = new ArrayList<EstatusCita>();
-        estatusCitas =  gson.fromJson(registrosJson,collectionType);
-        for(var p : estatusCitas){
-            System.out.println(p.getNombre());
-        }
+        var estatusCitas = EstatusCitaCreador.creador();
+        estatusCita.setRegistros(estatusCitas);
+        var citas = CitaCreador.creador();
+        cita.setRegistros(citas);
     }
 
 }

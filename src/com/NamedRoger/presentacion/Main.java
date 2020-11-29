@@ -11,9 +11,6 @@ public class Main {
         DataBase db = DataBase.getInstance();
         RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
         ServicioEstatusCita servicioEstatusCita = new ServicioEstatusCita(db);
-        var p = servicioEstatusCita.obtenerTodos();
-        for(var a: p){
-            System.out.println(a.getNombre());
-        }
+
     }
 }
