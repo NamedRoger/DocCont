@@ -21,7 +21,8 @@ public class CitaCreador {
         Type collectionType = new TypeToken<ArrayList<EstatusCita>>(){}.getType();
         ArrayList<Cita> citas = new ArrayList<Cita>();
         Gson gson = new Gson();
-        citas =  gson.fromJson(registrosJson,collectionType);
+        citas =  gson.fromJson(registrosJson,collectionType) != null
+                ? gson.fromJson(registrosJson,collectionType) : new ArrayList<>();
         return citas;
     }
 }
