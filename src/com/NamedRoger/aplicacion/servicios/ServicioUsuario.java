@@ -45,4 +45,11 @@ public class ServicioUsuario {
         var exito = this.db.getUsuario().borrar(usuario);
         return exito;
     }
+
+    public boolean login(String userName, String password){
+        var usuario = this.obtenerTodos().stream().filter(modelo -> modelo.getUserName() == userName
+                && modelo.getPassword() == password)
+                .findFirst().orElseThrow();
+        return usuario != null ? true: false;
+    }
 }
