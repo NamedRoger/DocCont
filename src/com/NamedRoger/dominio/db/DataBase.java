@@ -70,6 +70,10 @@ public class DataBase {
         usuario.setRegistros(usuarios);
         var pacientes = PacienteCreador.creador();
         paciente.setRegistros(pacientes);
+        var doctores = DoctorCreador.creador();
+        doctor.setRegistros(doctores);
+        var especialidades = EspecialidadCreador.creador();
+        especialidad.setRegistros(especialidades);
     }
 
 }
