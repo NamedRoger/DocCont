@@ -21,7 +21,8 @@ public class UsuarioCreador {
         Type collectionType = new TypeToken<ArrayList<Usuario>>(){}.getType();
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         Gson gson = new Gson();
-        usuarios =  gson.fromJson(registrosJson,collectionType);
+        usuarios =  gson.fromJson(registrosJson,collectionType) != null
+                ? gson.fromJson(registrosJson,collectionType) : new ArrayList<>();
         return usuarios;
     }
 }
