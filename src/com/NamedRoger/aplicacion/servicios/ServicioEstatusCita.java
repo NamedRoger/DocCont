@@ -1,9 +1,10 @@
 package src.com.NamedRoger.aplicacion.servicios;
 
 import src.com.NamedRoger.dominio.db.DataBase;
+import src.com.NamedRoger.dominio.models.Cita;
 import src.com.NamedRoger.dominio.models.EstatusCita;
-import src.com.NamedRoger.infraestructura.interfaces.IServicio;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ServicioEstatusCita {
@@ -11,21 +12,14 @@ public class ServicioEstatusCita {
     public  ServicioEstatusCita(DataBase db){
         this.db = db;
     }
-    public List obtenerEstatusCita() {
-        return this.db.getEstatusCita().obtener();
+
+    public List<EstatusCita> obtenerTodos() {
+        return this.db.getEstatusCita().obtenerTodos();
     }
 
-    public void insertarEstatusCita(String estatusCita) {
-
+    public void insertarEstatusCita(String nombre) throws IOException {
+        EstatusCita estatusCita = new EstatusCita();
+        estatusCita.setNombre(nombre);
+        this.db.getEstatusCita().insertar(estatusCita);
     }
-
-    public void editarEstatusCita(EstatusCita estatusCita) {
-
-    }
-
-    public void borrarEstatusCita(EstatusCita estatusCita) {
-
-    }
-
-
 }

@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class RegistroDataBase {
     private static RegistroDataBase registroDataBase;
-    private HashMap<String,Integer> registroTablas = new HashMap<>();
+    private HashMap<String,Double> registroTablas = new HashMap<>();
 
     private RegistroDataBase() throws IOException {
         crearTabla();
@@ -29,12 +29,12 @@ public class RegistroDataBase {
     }
 
     public void editarRegistro(String tabla, Integer ultimoId) throws IOException {
-        registroTablas.put(tabla,ultimoId);
+        registroTablas.put(tabla,ultimoId.doubleValue());
         actualizarTabla();
     }
 
-    public Integer obtenerRegistro(String tabla){
-        var registro = registroTablas.get(tabla);
+    public int obtenerRegistro(String tabla){
+        var registro = registroTablas.get(tabla).intValue();
         return registro;
     }
 
@@ -48,13 +48,13 @@ public class RegistroDataBase {
 
         if(!Files.exists(path)){
             Gson g = new Gson();
-
-            registroTablas.put("citas",0);
-            registroTablas.put("usuarios",0);
-            registroTablas.put("pacientes",0);
-            registroTablas.put("doctores",0);
-            registroTablas.put("estatus_citas",0);
-            registroTablas.put("especialidades",0);
+            double initId = (int) 0;
+            registroTablas.put("citas",initId);
+            registroTablas.put("usuarios",initId);
+            registroTablas.put("pacientes",initId);
+            registroTablas.put("doctores",initId);
+            registroTablas.put("estatus_citas",initId);
+            registroTablas.put("especialidades",initId);
             var registroJson = g.toJson(this.registroTablas);
             Files.write(path,registroJson.getBytes());
         }

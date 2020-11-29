@@ -1,6 +1,7 @@
 package src.com.NamedRoger.dominio.models;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import src.com.NamedRoger.dominio.db.RegistroDataBase;
 import src.com.NamedRoger.infraestructura.Constante;
 import src.com.NamedRoger.infraestructura.interfaces.Modelo;
@@ -14,41 +15,28 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Entidad<TModelo extends Modelo> {
+public class Entidad<TModelo extends BaseModelo> {
     private String tabla;
     List<TModelo> registros;
 
     public Entidad(String tabla) throws IOException {
         this.tabla = tabla;
         this.crearTabla();
-        this.registros = new ArrayList<>();
+        this.registros = new ArrayList<TModelo>();
         cargarDatos();
     }
 
-
-    public List<TModelo> obtener(){
+    public List<TModelo> obtenerTodos(){
         return this.registros;
     }
 
     public void insertar(TModelo model) throws IOException {
         RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
-        Integer ultimoId = registroDataBase.obtenerRegistro(this.tabla) +1;
+        int ultimoId = (int) (registroDataBase.obtenerRegistro(this.tabla) +1);
         model.setId(ultimoId);
         this.registros.add(model);
         this.guardar();
         registroDataBase.editarRegistro(this.tabla,ultimoId);
-    }
-
-    public void editar(TModelo model,TModelo entidadActualizada) throws IOException {
-        int idx = this.registros.indexOf(model);
-        TModelo entididad = this.registros.get(idx);
-
-        this.registros.set(idx,entidadActualizada);
-        this.guardar();
-    }
-
-    public void borrar(TModelo modelo){
-        this.registros.remove(modelo);
     }
 
     private void crearTabla() throws IOException {
@@ -70,7 +58,8 @@ public class Entidad<TModelo extends Modelo> {
 
         if(!registrosJson.isEmpty()){
             Gson gson = new Gson();
-           this.registros = gson.fromJson(registrosJson, (Type) Object.class);
+            Type type = new TypeToken<ArrayList<TModelo>>(){}.getType();
+            this.registros = gson.fromJson(registrosJson,type);
         }
 
     }
