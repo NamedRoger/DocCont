@@ -68,6 +68,8 @@ public class DataBase {
         cita.setRegistros(citas);
         var usuarios = UsuarioCreador.creador();
         usuario.setRegistros(usuarios);
+        var pacientes = PacienteCreador.creador();
+        paciente.setRegistros(pacientes);
     }
 
 }
