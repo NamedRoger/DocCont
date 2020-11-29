@@ -1,6 +1,8 @@
 package src.com.NamedRoger.dominio.models;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import src.com.NamedRoger.dominio.db.RegistroDataBase;
 import src.com.NamedRoger.infraestructura.Constante;
 import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 
@@ -13,38 +15,47 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Entidad<TModelo extends Modelo> {
+public class Entidad<TModelo extends BaseModelo> {
     private String tabla;
-    List<TModelo> registros;
+    private List<TModelo> registros;
 
     public Entidad(String tabla) throws IOException {
         this.tabla = tabla;
         this.crearTabla();
-        this.registros = new ArrayList<>();
-        cargarDatos();
+        this.registros = new ArrayList<TModelo>();
     }
 
+    public TModelo obtener(int id){
+        return this.registros.stream().filter(modelo -> modelo.getId() == id).findFirst().orElseThrow();
+    }
 
-    public List<TModelo> obtener(){
+    public List<TModelo> obtenerTodos(){
         return this.registros;
     }
 
     public void insertar(TModelo model) throws IOException {
+        RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
+        int ultimoId = (int) (registroDataBase.obtenerRegistro(this.tabla) +1);
+        model.setId(ultimoId);
         this.registros.add(model);
         this.guardar();
-
+        registroDataBase.editarRegistro(this.tabla,ultimoId);
     }
 
-    public void editar(TModelo model,TModelo entidadActualizada) throws IOException {
-        int idx = this.registros.indexOf(model);
-        TModelo entididad = this.registros.get(idx);
-
-        this.registros.set(idx,entidadActualizada);
+    public void editar(TModelo modelo, TModelo modeloEditado) throws IOException {
+        var modeloActual = this.registros.indexOf(modelo);
+        this.registros.set(modeloActual,modeloEditado);
         this.guardar();
     }
 
-    public void borrar(TModelo modelo){
-        this.registros.remove(modelo);
+    public boolean borrar(TModelo modelo) throws IOException {
+        var modeloBorrado =  this.registros.remove(this.registros.indexOf(modelo));
+        boolean exito = false;
+        if (modeloBorrado != null) {
+            exito = true;
+            this.guardar();
+        }
+        return exito;
     }
 
     private void crearTabla() throws IOException {
@@ -57,18 +68,14 @@ public class Entidad<TModelo extends Modelo> {
 
     private void guardar() throws IOException {
         Path path = Paths.get(Constante.getPath()+"/"+tabla+".json");
-        Files.write(path, (new Gson().toJson(this.registros)).getBytes(), StandardOpenOption.CREATE);
+        Files.write(path, (new Gson().toJson(this.registros)).getBytes());
     }
 
-    private void cargarDatos() throws IOException {
-        Path path = Paths.get(Constante.getPath()+"/"+tabla+".json");
-        String registrosJson = new String(Files.readAllBytes(path));
-
-        if(!registrosJson.isEmpty()){
-            Gson gson = new Gson();
-           this.registros = gson.fromJson(registrosJson, (Type) Object.class);
-        }
-
+    public void setRegistros(List<TModelo> registros) {
+        this.registros = registros;
     }
 
+    public void setTabla(String tabla) {
+        this.tabla = tabla;
+    }
 }
