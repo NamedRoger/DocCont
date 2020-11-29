@@ -66,6 +66,8 @@ public class DataBase {
         estatusCita.setRegistros(estatusCitas);
         var citas = CitaCreador.creador();
         cita.setRegistros(citas);
+        var usuarios = UsuarioCreador.creador();
+        usuario.setRegistros(usuarios);
     }
 
 }
