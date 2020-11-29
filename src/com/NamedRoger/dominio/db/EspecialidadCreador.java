@@ -21,7 +21,8 @@ public class EspecialidadCreador {
         Type collectionType = new TypeToken<ArrayList<Especialidad>>(){}.getType();
         ArrayList<Especialidad> especialidad = new ArrayList<Especialidad>();
         Gson gson = new Gson();
-        especialidad =  gson.fromJson(registrosJson,collectionType);
+        especialidad =  gson.fromJson(registrosJson,collectionType) != null
+        ? gson.fromJson(registrosJson,collectionType) : new ArrayList<>();
         return especialidad;
     }
 }

@@ -9,7 +9,17 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 
+
 public class Main {
+<<<<<<< HEAD
+
+        public static void main(String args[]) throws Exception {
+            DataBase db = DataBase.getInstance();
+            RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
+
+        }
+}
+=======
 
     public static void main(String args[]) throws Exception {
         boolean logueado = false;
@@ -53,3 +63,4 @@ public class Main {
     }
 
 }
+>>>>>>> 61a345e97b183e3c5572606082ecafa85ef1313b
