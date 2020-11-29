@@ -18,7 +18,7 @@ public class UsuarioCreador {
     public static List<Usuario> creador() throws IOException {
         Path path = Paths.get(Constante.getPath()+"/"+"usuarios"+".json");
         String registrosJson = new String(Files.readAllBytes(path));
-        Type collectionType = new TypeToken<ArrayList<EstatusCita>>(){}.getType();
+        Type collectionType = new TypeToken<ArrayList<Usuario>>(){}.getType();
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         Gson gson = new Gson();
         usuarios =  gson.fromJson(registrosJson,collectionType);
