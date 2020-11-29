@@ -17,19 +17,19 @@ public class ServicioDoctor {
         return this.db.getDoctor().obtener(id);
     }
 
-    public List<EstatusCita> obtenerTodos() {
-        return this.db.getEstatusCita().obtenerTodos();
+    public List<Doctor> obtenerTodos() {
+        return this.db.getDoctor().obtenerTodos();
     }
 
     public void insertarDoctor(String nombre) throws IOException {
         Doctor doctor = new Doctor();
         doctor.setNombre(nombre);
-        this.db.getEstatusCita().insertar(doctor);
+        this.db.getDoctor().insertar(doctor);
     }
 
     public void editarDoctor(int id,Doctor doctor) throws IOException {
-        var doctorActual = this.db.getEstatusCita().obtener(id);
-        this.db.getEstatusCita().editar(doctorActual,doctor);
+        var doctorActual = this.db.getDoctor().obtener(id);
+        this.db.getDoctor().editar(doctorActual,doctor);
     }
 
     public boolean borrarDoctor(int id) throws IOException {

@@ -20,15 +20,15 @@ public class ServicioEspecialidad {
         return this.db.getEspecialidad().obtenerTodos();
     }
 
-    public void insertarEstatusCita(String nombre) throws IOException {
+    public void insertarEspecialidad(String nombre) throws IOException {
         Especialidad especialidad = new Especialidad();
         especialidad.setNombre(nombre);
-        this.db.getEspecialidad().insertar(Especialidad);
+        this.db.getEspecialidad().insertar(especialidad);
     }
 
     public void editarEspecialidad(int id,Especialidad especialidad) throws IOException {
         var especialidadActual = this.db.getEspecialidad().obtener(id);
-        this.db.getEstatusCita().editar(especialidadActual,especialidad);
+        this.db.getEspecialidad().editar(especialidadActual,especialidad);
     }
 
     public boolean borrarEspecialidad(int id) throws IOException {
