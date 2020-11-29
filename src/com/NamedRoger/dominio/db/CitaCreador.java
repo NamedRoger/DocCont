@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CitaCreador {
     public static List<Cita> creador() throws IOException {
-        Path path = Paths.get(Constante.getPath()+"/"+"estatus_citas"+".json");
+        Path path = Paths.get(Constante.getPath()+"/"+"citas"+".json");
         String registrosJson = new String(Files.readAllBytes(path));
         Type collectionType = new TypeToken<ArrayList<EstatusCita>>(){}.getType();
         ArrayList<Cita> citas = new ArrayList<Cita>();

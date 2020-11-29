@@ -16,7 +16,7 @@ import java.util.List;
 
 public class EspecialidadCreador {
     public static List<Especialidad> creador() throws IOException {
-        Path path = Paths.get(Constante.getPath()+"/"+"especialidad"+".json");
+        Path path = Paths.get(Constante.getPath()+"/"+"especialidades"+".json");
         String registrosJson = new String(Files.readAllBytes(path));
         Type collectionType = new TypeToken<ArrayList<Especialidad>>(){}.getType();
         ArrayList<Especialidad> especialidad = new ArrayList<Especialidad>();

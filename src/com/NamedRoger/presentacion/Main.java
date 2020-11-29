@@ -10,7 +10,6 @@ public class Main {
     public static void main(String args[]) throws Exception {
         DataBase db = DataBase.getInstance();
         RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
-        ServicioEstatusCita servicioEstatusCita = new ServicioEstatusCita(db);
 
     }
 }
