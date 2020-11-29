@@ -22,7 +22,7 @@ public class DoctorCreador {
         Type collectionType = new TypeToken<ArrayList<Doctor>>(){}.getType();
         ArrayList<Doctor> doctores = new ArrayList<Doctor>();
         Gson gson = new Gson();
-        doctores =  gson.fromJson(registrosJson,collectionType);
+        doctores =  gson.fromJson(registrosJson,collectionType) != null ? gson.fromJson(registrosJson,collectionType) : new ArrayList<>();
         return doctores;
     }
 }
