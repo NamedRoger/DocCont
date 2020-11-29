@@ -33,7 +33,7 @@ public class ServicioEspecialidad {
 
     public boolean borrarEspecialidad(int id) throws IOException {
         var especialidad = this.db.getEspecialidad().obtener(id);
-        var exito = this.db.getEspecialidad().borrar(Especialidad);
+        var exito = this.db.getEspecialidad().borrar(especialidad);
         return exito;
     }
 }
