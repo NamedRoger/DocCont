@@ -13,9 +13,16 @@ public class LoginView extends View {
 
     public Usuario Login(){
         this.apartado();
+        
         System.out.println("Usuario");
+        var userName= scanner.nextLine();
         System.out.println("Password");
+        var password = scanner.nextLine();
 
-        return new Usuario();
+        Usuario usuario = new Usuario();
+        usuario.setUserName(userName);
+        usuario.setPassword(password);
+
+        return usuario;
     }
 }

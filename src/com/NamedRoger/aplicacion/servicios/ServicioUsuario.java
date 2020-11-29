@@ -46,7 +46,10 @@ public class ServicioUsuario {
         return exito;
     }
 
-    public boolean login(String userName, String password){
+    public boolean login(String userName, String password) throws Exception {
+        if(this.obtenerTodos().isEmpty()){
+            throw new Exception("No hay usuarios");
+        }
         var usuario = this.obtenerTodos().stream().filter(modelo -> modelo.getUserName() == userName
                 && modelo.getPassword() == password)
                 .findFirst().orElseThrow();

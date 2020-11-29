@@ -22,7 +22,8 @@ public class EstatusCitaCreador {
         Type collectionType = new TypeToken<ArrayList<EstatusCita>>(){}.getType();
         ArrayList<EstatusCita> estatusCitas = new ArrayList<EstatusCita>();
         Gson gson = new Gson();
-        estatusCitas =  gson.fromJson(registrosJson,collectionType);
+        estatusCitas =  gson.fromJson(registrosJson,collectionType) != null
+                ? gson.fromJson(registrosJson,collectionType) : new ArrayList<>();
         return estatusCitas;
     }
 }
