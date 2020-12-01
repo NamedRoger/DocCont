@@ -22,6 +22,10 @@ public class PacienteController extends ControllerBase {
     public PacienteController(DataBase dataBase) {
         super(dataBase);
         servicioPaciente = new ServicioPaciente(this.dataBase);
+        index = new Index("Menu Pacientes",this.scanner);
+        listar = new Listar("Pacientes",this.scanner);
+        add = new Add("Agregar Paciente",this.scanner);
+        edit = new Edit("Editar Paciente",this.scanner);
     }
 
     public boolean index(){
@@ -71,14 +75,20 @@ public class PacienteController extends ControllerBase {
     }
 
     public void edit() throws IOException {
+        System.out.println("Introduce Id del paciente");
         var id = scanner.nextInt();
+        scanner.nextLine();
         var paciente = this.servicioPaciente.obtener(id);
         var pacienteEditado  = this.edit.editar(paciente);
         this.servicioPaciente.editarPaciente(paciente,pacienteEditado);
         System.out.println("Paciente editado");
     }
 
-    public void delete(){
+    public void delete() throws IOException {
+        System.out.println("Introduce Id del paciente");
+        var id = this.scanner.nextInt();
+        var paciente = this.servicioPaciente.obtener(id);
+        this.servicioPaciente.borrarPaciente(paciente);
         System.out.println("Paciente eliminado");
     }
 

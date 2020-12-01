@@ -16,8 +16,7 @@ public class Home extends View {
                 "(1) Doctores \n" +
                 "(2) Pacientes \n" +
                 "(3) Citas \n" +
-                "(4) Especialidades \n" +
-                "(5) Salir \n");
+                "(4) Salir \n");
         var op = scanner.nextInt();
         scanner.nextLine();
         return op;

@@ -17,6 +17,7 @@ public class Listar extends View {
             System.out.println("No hay pacientes");
         }else{
             pacientes.forEach(paciente -> {
+                System.out.println(String.format("Id: %s",paciente.getId()));
                 System.out.println(String.format("Nombre: %s",paciente.getNombre()));
                 System.out.println();
             });

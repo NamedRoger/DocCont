@@ -5,6 +5,7 @@ import src.com.NamedRoger.dominio.models.Cita;
 import src.com.NamedRoger.dominio.models.Doctor;
 import src.com.NamedRoger.dominio.models.Paciente;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ServicioCita {
@@ -22,7 +23,7 @@ public class ServicioCita {
         return  this.db.getCita().obtenerTodos();
     }
 
-    public void insertarCita(Paciente paciente, Doctor doctor){
-
+    public void insertarCita(Cita cita) throws IOException {
+        this.db.getCita().insertar(cita);
     }
 }

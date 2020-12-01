@@ -14,17 +14,19 @@ public class HomeController extends ControllerBase {
     public void principal() throws OpcionException {
         boolean enPrincipal = true;
         DoctorController doctorController = new DoctorController(this.dataBase);
+        PacienteController pacienteController = new PacienteController(this.dataBase);
 
         do{
             try{
                 var opHome = home.principal();
-                validarOpcion(opHome,0,5);
+                validarOpcion(opHome,0,4);
 
                 switch (opHome){
                     case 1:
                         enPrincipal = doctorController.index();
                         break;
                     case 2:
+                        enPrincipal = pacienteController.index();
                         break;
                     case 3:
                         break;

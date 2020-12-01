@@ -29,8 +29,7 @@ public class ServicioPaciente {
         this.db.getPaciente().editar(pacienteActual,pacienteEditado);
     }
 
-    public boolean borrarPaciente(int id) throws IOException {
-        var paciente = this.db.getPaciente().obtener(id);
+    public boolean borrarPaciente(Paciente paciente) throws IOException {
         var exito = this.db.getPaciente().borrar(paciente);
         return exito;
     }

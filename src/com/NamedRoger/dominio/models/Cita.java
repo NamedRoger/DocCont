@@ -2,16 +2,14 @@ package src.com.NamedRoger.dominio.models;
 
 import src.com.NamedRoger.infraestructura.Constante;
 
-import java.util.Date;
-
 public class Cita extends BaseModelo {
     private Paciente paciente;
     private Doctor doctor;
-    private Date fecha;
+    private String fecha;
     private String razon;
     private Constante.ESTATUS_CITA estatusCita = Constante.ESTATUS_CITA.valueOf("PENDIENTE");
 
-    Cita(){
+    public Cita(){
         this.paciente = new Paciente();
         this.doctor = new Doctor();
     }
@@ -32,11 +30,11 @@ public class Cita extends BaseModelo {
         return doctor;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
