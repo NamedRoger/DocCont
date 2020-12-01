@@ -2,7 +2,6 @@ package src.com.NamedRoger.aplicacion.servicios;
 
 import src.com.NamedRoger.dominio.db.DataBase;
 import src.com.NamedRoger.dominio.models.Doctor;
-import src.com.NamedRoger.dominio.models.EstatusCita;
 
 import java.io.IOException;
 import java.util.List;

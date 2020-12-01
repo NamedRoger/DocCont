@@ -1,7 +1,6 @@
 package src.com.NamedRoger.aplicacion.servicios;
 
 import src.com.NamedRoger.dominio.db.DataBase;
-import src.com.NamedRoger.dominio.models.EstatusCita;
 import src.com.NamedRoger.dominio.models.Usuario;
 
 import java.io.IOException;
@@ -46,13 +45,11 @@ public class ServicioUsuario {
         return exito;
     }
 
-    public boolean login(String userName, String password) throws Exception {
-        if(this.obtenerTodos().isEmpty()){
-            throw new Exception("No hay usuarios");
-        }
+    public boolean login(String userName, String password){
+
         var usuario = this.obtenerTodos().stream().filter(modelo -> modelo.getUserName() == userName
                 && modelo.getPassword() == password)
-                .findFirst().orElseThrow();
+                .findFirst().orElse(null);
         return usuario != null ? true: false;
     }
 }

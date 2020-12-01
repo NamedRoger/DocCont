@@ -15,9 +15,19 @@ public class LoginController extends ControllerBase{
         servicioUsuario = new ServicioUsuario(this.dataBase);
     }
 
-    public boolean showLogin() throws Exception {
-        var usuario = view.Login();
-        var existe = servicioUsuario.login(usuario.getUserName(),usuario.getPassword());
-        return existe;
+    public boolean showLogin() {
+        boolean noLogueado = true;
+        do{
+            var usuario = view.Login();
+            var existe = servicioUsuario.login(usuario.getUserName(),usuario.getPassword());
+            if(existe){
+               noLogueado = false;
+                System.out.println("Te has logueado");
+            }else {
+                System.out.println("Puede que el usuario o la contraseña sean incorrectos");
+            }
+        }while (noLogueado);
+
+        return !noLogueado;
     }
 }

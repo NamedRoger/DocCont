@@ -2,6 +2,7 @@ package src.com.NamedRoger.dominio.db;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import src.com.NamedRoger.dominio.models.Cita;
 import src.com.NamedRoger.dominio.models.Paciente;
 import src.com.NamedRoger.infraestructura.Constante;
 
@@ -13,15 +14,27 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PacienteCreador {
-    public static List<Paciente> creador() throws IOException {
-        Path path = Paths.get(Constante.getPath()+"/"+"pacientes"+".json");
+public class PacienteCreador extends Creador {
+    public PacienteCreador(String tabla) throws IOException {
+        super(tabla);
+    }
+
+    public List<Paciente> cargarDatos() throws IOException {
+        Path path = Paths.get(Constante.getPath()+"/"+this.tabla+".json");
         String registrosJson = new String(Files.readAllBytes(path));
         Type collectionType = new TypeToken<ArrayList<Paciente>>(){}.getType();
-        ArrayList<Paciente> pacientes = new ArrayList<>();
+        ArrayList<Paciente> citas = new ArrayList<Paciente>();
         Gson gson = new Gson();
-        pacientes = gson.fromJson(registrosJson,collectionType) != null
+        citas =  gson.fromJson(registrosJson,collectionType) != null
                 ? gson.fromJson(registrosJson,collectionType) : new ArrayList<>();
-        return pacientes;
+        return citas;
+    }
+
+    public void crearTabla() throws IOException {
+        Path path = Paths.get(Constante.getPath()+"/"+this.tabla+".json");
+        String dataInit = "";
+        if(!Files.exists(path)){
+            Files.write(path,dataInit.getBytes());
+        }
     }
 }

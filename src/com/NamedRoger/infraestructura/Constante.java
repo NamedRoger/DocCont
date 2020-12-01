@@ -9,4 +9,10 @@ public class Constante {
         String fileName = String.format(System.getProperty("user.home"));
         return fileName;
     }
+
+    public enum ESTATUS_CITA {
+        CANCELADA,
+        PENDIENTE,
+        REALIZADA
+    }
 }

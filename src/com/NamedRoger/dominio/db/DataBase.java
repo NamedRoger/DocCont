@@ -22,7 +22,6 @@ public class DataBase {
     private Entidad<Doctor> doctor = new Entidad<>("doctores");
     private Entidad<Especialidad> especialidad = new Entidad<>("especialidades");
     private Entidad<Paciente> paciente = new Entidad<>("pacientes");
-    private Entidad<EstatusCita> estatusCita = new Entidad<>("estatus_citas");
     private Entidad<Usuario> usuario = new Entidad<>("usuarios");
 
     private DataBase() throws IOException {
@@ -41,9 +40,6 @@ public class DataBase {
         return especialidad;
     }
 
-    public Entidad<EstatusCita> getEstatusCita() {
-        return estatusCita;
-    }
 
     public Entidad<Paciente> getPaciente() {
         return paciente;
@@ -62,18 +58,17 @@ public class DataBase {
     }
 
     public void cargarDatos() throws IOException {
-        var estatusCitas = EstatusCitaCreador.creador();
-        estatusCita.setRegistros(estatusCitas);
-        var citas = CitaCreador.creador();
-        cita.setRegistros(citas);
-        var usuarios = UsuarioCreador.creador();
-        usuario.setRegistros(usuarios);
-        var pacientes = PacienteCreador.creador();
-        paciente.setRegistros(pacientes);
-        var doctores = DoctorCreador.creador();
-        doctor.setRegistros(doctores);
-        var especialidades = EspecialidadCreador.creador();
-        especialidad.setRegistros(especialidades);
+        UsuarioCreador usuarioCreador = new UsuarioCreador(this.usuario.getTabla());
+        this.usuario.setRegistros(usuarioCreador.cargarDatos());
+
+        CitaCreador citaCreador = new CitaCreador(this.cita.getTabla());
+        this.cita.setRegistros(citaCreador.cargarDatos());
+
+        DoctorCreador doctorCreador = new DoctorCreador(this.doctor.getTabla());
+        this.doctor.setRegistros(doctorCreador.cargarDatos());
+
+        PacienteCreador pacienteCreador = new PacienteCreador(this.paciente.getTabla());
+        this.paciente.setRegistros(pacienteCreador.cargarDatos());
     }
 
 

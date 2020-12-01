@@ -2,6 +2,8 @@ package src.com.NamedRoger.presentacion;
 
 import src.com.NamedRoger.dominio.db.DataBase;
 import src.com.NamedRoger.dominio.db.RegistroDataBase;
+import src.com.NamedRoger.dominio.models.Usuario;
+import src.com.NamedRoger.infraestructura.Constante;
 import src.com.NamedRoger.presentacion.controladores.LoginController;
 
 import java.io.IOException;
@@ -22,13 +24,7 @@ public class Main {
         do {
             try{
                 if(!logueado){
-                    var noExiste = true;
-                    do{
-                        noExiste = !(loginController.showLogin());
-                        if(noExiste){
-                            throw new Exception("El usuario es invalido, verfica");
-                        }
-                    }while (noExiste);
+                    logueado = loginController.showLogin();
                 }else{
                 }
             }catch (Exception e){

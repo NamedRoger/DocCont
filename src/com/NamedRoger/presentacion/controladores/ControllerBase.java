@@ -8,7 +8,7 @@ public abstract class ControllerBase {
     protected Scanner scanner;
     protected DataBase dataBase;
     public ControllerBase(DataBase dataBase){
-        dataBase = dataBase;
+        this.dataBase = dataBase;
         this.scanner = new Scanner(System.in);
     }
 }
