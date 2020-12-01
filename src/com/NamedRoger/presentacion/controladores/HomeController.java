@@ -15,6 +15,7 @@ public class HomeController extends ControllerBase {
         boolean enPrincipal = true;
         DoctorController doctorController = new DoctorController(this.dataBase);
         PacienteController pacienteController = new PacienteController(this.dataBase);
+        CitaController citaController = new CitaController(this.dataBase);
 
         do{
             try{
@@ -29,10 +30,9 @@ public class HomeController extends ControllerBase {
                         enPrincipal = pacienteController.index();
                         break;
                     case 3:
+                        enPrincipal = citaController.index();
                         break;
                     case 4:
-                        break;
-                    case 5:
                         enPrincipal = false;
                         break;
                 }

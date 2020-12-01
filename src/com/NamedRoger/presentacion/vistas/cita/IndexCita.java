@@ -14,10 +14,9 @@ public class IndexCita extends View {
         System.out.println("" +
                 "(1) Listar \n" +
                 "(2) Agregar \n" +
-                "(3) Editar \n" +
-                "(4) Borrar \n" +
-                "(5) Regresar \n" +
-                "(6) Salir \n");
+                "(3) Borrar \n" +
+                "(4) Regresar \n" +
+                "(5) Salir \n");
         var op = scanner.nextInt();
         scanner.nextLine();
         return op;

@@ -26,4 +26,8 @@ public class ServicioCita {
     public void insertarCita(Cita cita) throws IOException {
         this.db.getCita().insertar(cita);
     }
+
+    public void borrarCita(Cita cita) throws IOException {
+        this.db.getCita().borrar(cita);
+    }
 }

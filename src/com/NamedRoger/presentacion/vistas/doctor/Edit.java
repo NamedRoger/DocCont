@@ -1,9 +1,9 @@
 package src.com.NamedRoger.presentacion.vistas.doctor;
 
 import src.com.NamedRoger.dominio.models.Doctor;
+import src.com.NamedRoger.dominio.models.Paciente;
 import src.com.NamedRoger.presentacion.vistas.View;
 
-import javax.print.Doc;
 import java.util.Scanner;
 
 public class Edit extends View {

@@ -1,7 +1,6 @@
 package src.com.NamedRoger.presentacion.controladores;
 
 import src.com.NamedRoger.aplicacion.servicios.ServicioDoctor;
-import src.com.NamedRoger.aplicacion.servicios.ServicioUsuario;
 import src.com.NamedRoger.dominio.db.DataBase;
 import src.com.NamedRoger.infraestructura.exceptions.OpcionException;
 import src.com.NamedRoger.presentacion.vistas.doctor.Add;
