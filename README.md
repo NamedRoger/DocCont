@@ -2,14 +2,12 @@
 Sistema de control y administración de citas
 
 ## Instalación y Configuración
-- Paso 1: Acceder a este repositorio en línea: LINK AQUI DE LA VERISON 1
-- Paso 2: Descargar la opción ""
-- Paso 3: Extraer el archivo ejecutable dentro de WinRAR y colocarlo en una ubicacion facil de buscar y acceder
-- Paso 4: Acceder al CMD y ejecutar el sistema con la ruta en donde tengas guardado el proyecto
+- Paso 1: Extraer el archivo ejecutable dentro de WinRAR y colocarlo en una ubicacion facil de buscar y acceder
+- Paso 2: Acceder al CMD y ejecutar el sistema con la ruta en donde tengas guardado el proyecto
 - java -jar DocCont.jar
-- Paso 5: Acceder con usuario y contraseña
+- Paso 3: Acceder con usuario y contraseña
 
-Usuario: Admin
+Usuario: Admin  
 
 Contraseña: Admin
 
@@ -33,17 +31,8 @@ En la seccion Doctores podra hacer las siguientes actividades:
 
 En la seccion Citas podra hacer las siguientes actividades:
 - Crear Cita
-- Editar Cita
 - Eliminar Cita
 - Ver lista de Citas
-- Regresar
-- Salir
-
-En la seccion Especialidades podra hacer las siguientes actividades:
-- Crear Especialidad
-- Editar Especialidad
-- Eliminar Cita
-- Ver lista de Especialidades
 - Regresar
 - Salir
 
