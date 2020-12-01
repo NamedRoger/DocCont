@@ -20,7 +20,6 @@ public class DataBase {
 
     private Entidad<Cita> cita = new Entidad<>("citas");
     private Entidad<Doctor> doctor = new Entidad<>("doctores");
-    private Entidad<Especialidad> especialidad = new Entidad<>("especialidades");
     private Entidad<Paciente> paciente = new Entidad<>("pacientes");
     private Entidad<Usuario> usuario = new Entidad<>("usuarios");
 
@@ -35,11 +34,6 @@ public class DataBase {
     public Entidad<Doctor> getDoctor() {
         return doctor;
     }
-
-    public Entidad<Especialidad> getEspecialidad() {
-        return especialidad;
-    }
-
 
     public Entidad<Paciente> getPaciente() {
         return paciente;

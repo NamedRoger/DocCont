@@ -4,6 +4,8 @@ import src.com.NamedRoger.dominio.db.DataBase;
 import src.com.NamedRoger.dominio.db.RegistroDataBase;
 import src.com.NamedRoger.dominio.models.Usuario;
 import src.com.NamedRoger.infraestructura.Constante;
+import src.com.NamedRoger.infraestructura.exceptions.OpcionException;
+import src.com.NamedRoger.presentacion.controladores.HomeController;
 import src.com.NamedRoger.presentacion.controladores.LoginController;
 
 import java.io.IOException;
@@ -18,6 +20,7 @@ public class Main {
         boolean logueado = false;
         DataBase db = DataBase.getInstance();
         RegistroDataBase registroDataBase = RegistroDataBase.getInstance();
+        HomeController homeController;
 
         LoginController loginController = new LoginController(db);
         apartado("Bienvendo al sistema DocCont");
@@ -26,10 +29,14 @@ public class Main {
                 if(!logueado){
                     logueado = loginController.showLogin();
                 }else{
-                    System.out.println("sdksad");
+                    homeController = new HomeController(db);
+                    homeController.principal();
+
+                    logueado = false;
                 }
             }catch (Exception e){
-
+                System.out.println(e.getMessage());
+                logueado = true;
             }
         }while (logueado);
     }

@@ -21,15 +21,12 @@ public class ServicioPaciente {
         return this.db.getPaciente().obtenerTodos();
     }
 
-    public void insertarPaciente(String nombre) throws IOException {
-        Paciente paciente = new Paciente();
-        paciente.setNombre(nombre);
+    public void insertarPaciente(Paciente paciente) throws IOException {
         this.db.getPaciente().insertar(paciente);
     }
 
-    public void editarPaciente(int id,Paciente paciente) throws IOException {
-        var pacienteActual= this.db.getPaciente().obtener(id);
-        this.db.getPaciente().editar(pacienteActual,paciente);
+    public void editarPaciente(Paciente pacienteActual,Paciente pacienteEditado) throws IOException {
+        this.db.getPaciente().editar(pacienteActual,pacienteEditado);
     }
 
     public boolean borrarPaciente(int id) throws IOException {

@@ -5,7 +5,7 @@ import src.com.NamedRoger.infraestructura.interfaces.Modelo;
 public class Doctor extends BaseModelo {
     private String nombre;
     private String cedula;
-    private Especialidad especialidad;
+    private String especialidad;
 
     public String getNombre() {
         return nombre;
@@ -23,11 +23,11 @@ public class Doctor extends BaseModelo {
         this.cedula = cedula;
     }
 
-    public Especialidad getEspecialidad() {
+    public String getEspecialidad() {
         return especialidad;
     }
 
-    public void setEspecialidad(Especialidad especialidad) {
+    public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 }
