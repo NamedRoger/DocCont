@@ -2,7 +2,16 @@
 Sistema de control y administración de citas
 
 ## Instalación y Configuración
+- Paso 1: Acceder a este repositorio en línea: LINK AQUI DE LA VERISON 1
+- Paso 2: Descargar la opción ""
+- Paso 3: Extraer el archivo ejecutable dentro de WinRAR y colocarlo en una ubicacion facil de buscar y acceder
+- Paso 4: Acceder al CMD y ejecutar el sistema con la ruta en donde tengas guardado el proyecto
+- java -jar DocCont.jar
+- Paso 5: Acceder con usuario y contraseña
 
+Usuario: Admin
+
+Contraseña: Admin
 
 ## Uso del programa
 Al iniciar el ejecutable se abrira el Login donde ingresara el usuario y contraseña *Nota: el usuario es Admin y la contraseña es Admin por default*
