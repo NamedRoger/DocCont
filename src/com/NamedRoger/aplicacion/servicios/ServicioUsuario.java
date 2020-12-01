@@ -5,6 +5,7 @@ import src.com.NamedRoger.dominio.models.Usuario;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ServicioUsuario {
     DataBase db;
@@ -47,9 +48,10 @@ public class ServicioUsuario {
 
     public boolean login(String userName, String password){
 
-        var usuario = this.obtenerTodos().stream().filter(modelo -> modelo.getUserName() == userName
-                && modelo.getPassword() == password)
-                .findFirst().orElse(null);
+        var usuario = this.obtenerTodos().stream()
+                .filter(u -> u.getUserName().equals(userName) && u.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
         return usuario != null ? true: false;
     }
 }

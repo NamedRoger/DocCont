@@ -26,9 +26,10 @@ public class Main {
                 if(!logueado){
                     logueado = loginController.showLogin();
                 }else{
+                    System.out.println("sdksad");
                 }
             }catch (Exception e){
-                System.out.println(e.getMessage());
+
             }
         }while (logueado);
     }
